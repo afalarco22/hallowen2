@@ -1,0 +1,94 @@
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner entradaPorTeclado=new Scanner(System.in);
+        Invitado objetoInvitado = new Invitado();
+        Lugar objetoLugar = new Lugar();
+        Fiesta objetoFiesta = new Fiesta();
+
+        //DEFINIENDO COSTOS DE LA FIESTA
+        System.out.println("****** GRAN FIESTA GRUPO URIBE********");
+        System.out.println("**************************************");
+
+        System.out.println("1. Digita el costo de la comida: ");
+        double costoAlimentos=entradaPorTeclado.nextDouble();
+        if(costoAlimentos>0){
+            objetoFiesta.costosAlimentos=costoAlimentos;
+        }else{
+            System.out.println("Ingresa un valor valido, rata");
+        }
+        System.out.println("el costo de alimentos fue: "+objetoFiesta.costosAlimentos);
+
+
+        System.out.println("2. Digita el costo de las bebidas: ");
+        double costoBebidas=entradaPorTeclado.nextDouble();
+        if(costoBebidas>0){
+            objetoFiesta.costosBebidas=costoBebidas;
+        }else{
+            System.out.println("Ingresa un valor valido, rata");
+        }
+        System.out.println("el costo de bebidas fue: "+objetoFiesta.costosBebidas);
+
+
+        System.out.println("3. Digita el costo del lugar: ");
+        double costoLugar=entradaPorTeclado.nextDouble();
+        if(costoLugar>0){
+            objetoFiesta.costosLugar=costoLugar;
+        }else{
+            System.out.println("Ingresa un valor valido, rata");
+        }
+        System.out.println("el costo del Lugar fue: "+objetoFiesta.costosLugar);
+
+        System.out.println("4. Digita el costo de equipos: ");
+        double costoEquipo=entradaPorTeclado.nextDouble();
+        if(costoEquipo>0){
+            objetoFiesta.costosEquipos=costoEquipo;
+        }else{
+            System.out.println("Ingresa un valor valido, rata");
+        }
+        System.out.println("el costo del equipo fue: "+objetoFiesta.costosEquipos);
+
+        System.out.println("*******************************************************************************************");
+        System.out.println("El costo total de la fiesta es de " + objetoFiesta.calcularCostos());
+
+        // recibiendo datos de los invitados
+
+        System.out.println("Bienvenido a nuestra fiesta ");
+        System.out.println("*******************************************************************************************");
+        System.out.println("1. Documento del invitado: ");
+        objetoInvitado.id = entradaPorTeclado.next();
+        System.out.println("2. nombre del invitado: ");
+        objetoInvitado.nombre = entradaPorTeclado.next();
+        System.out.println("3. apellido del invitado: ");
+        objetoInvitado.apellido = entradaPorTeclado.next();
+        System.out.println("4. edad del invitado: ");
+        int edad = entradaPorTeclado.nextInt();
+        if(edad < 18){
+            System.out.println("No aceptamos menores");
+        }else{
+            objetoInvitado.edad = edad;
+        }
+        System.out.println("5. ¿Aplicar cover?: ");
+        objetoInvitado.aplicaCover = entradaPorTeclado.nextBoolean();
+
+        if(objetoInvitado.aplicaCover){
+            System.out.println("6. valor cover  ");
+            objetoInvitado.valorCover = entradaPorTeclado.nextDouble();
+
+
+        }else{
+            objetoInvitado.valorCover = 0.0;
+
+        }
+
+        System.out.println("7. tipo de disfraz  ");
+        objetoInvitado.disfraz = entradaPorTeclado.next();
+
+        System.out.println("Loa datos del invitado son: ");
+        objetoInvitado.mostrarInvitado();
+
+
+
+    }// fin método main
+}
